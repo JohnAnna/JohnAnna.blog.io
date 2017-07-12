@@ -1,0 +1,25 @@
+ function drawStar(cxt, x, y, r, R, rot){
+                cxt.beginPath();
+                for(var i = 0; i < 5; i ++){
+                    cxt.lineTo( Math.cos( (18 + i*72 - rot)/180 * Math.PI) * R + x,
+                                -Math.sin( (18 + i*72 - rot)/180 * Math.PI) * R + y)
+                    cxt.lineTo( Math.cos( (54 + i*72 - rot)/180 * Math.PI) * r + x,
+                                -Math.sin( (54 + i*72 - rot)/180 * Math.PI) * r + y)
+                }
+                cxt.closePath();
+                cxt.lineWidth = 1;
+                cxt.fillStyle = "yellow";
+                cxt.strokeStyle = "yellow";
+                cxt.lineJoin = "round";
+
+                cxt.fill();
+                cxt.stroke();
+            }
+
+        nodes.forEach(function (e) {
+            if (e.drivenByMouse) {
+                return;
+            }
+            ctx.fillStyle = nodeColor;
+        //ÐÇÐÇ
+            drawStar(ctx,e.x,e.y,e.radius/3,e.radius,0)
